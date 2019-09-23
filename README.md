@@ -43,11 +43,21 @@ public void ConfigureServices(IServiceCollection services)
 
 #### 三.代码中使用
 
-在需要地方注入`WechatService`后即可使用
-
+在需要地方注入`WechatService`后即可使用   
+```
+private readonly WechatService _service;
+public IndexModel(WechatService service)
+{
+    _service = service;
+}
+// 获取 AccessToken
+var result = _service.GetAccessToken();
+// 获取jssdk 配置
+var jssdkConfig=_service.GetJsSdkConfig(url)
+```
 ### WechatConfig 配置项
 
-Wechat文档地址: 
+Wechat文档地址: https://developers.weixin.qq.com/doc/
 
 ## 示例说明
 
