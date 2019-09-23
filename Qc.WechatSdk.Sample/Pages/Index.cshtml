@@ -20,7 +20,7 @@
 <script src="//res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
 <script>
         var jssdk = @Html.Raw(Model.SdkConfigData);
-        var apiShareList = ['onMenuShareTimeline', 'updateAppMessageShareData', 'updateTimelineShareData', 'onMenuShareTimeline', 'onMenuShareAppMessage'];
+        var apiShareList = ['onMenuShareTimeline', 'updateAppMessageShareData', 'updateTimelineShareData',  'onMenuShareAppMessage'];
         wx.config(Object.assign({
             debug: false,
             jsApiList: apiShareList.concat([])
@@ -35,7 +35,7 @@
                 imgUrl: 'https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico', // 分享图标
                 success: function () {
                   // 设置成功
-                  console.log('分享成功拉')
+                  console.log('分享成功啦')
                 }
               })
             })
@@ -53,7 +53,7 @@
                 imgUrl: 'https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico', // 分享图标
                 success: function () {
                   // 设置成功
-                  console.log('分享成功拉')
+                  console.log('分享成功啦')
                 }
               })
             })
