@@ -1,0 +1,61 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "测试";
+}
+<form method="post">
+    <button asp-page-handler="GetAccessToken">获取AccessToken</button>
+    <button asp-page-handler="GetBaseInfo">静默授权-获取Openid</button>
+    <button asp-page-handler="GetUserInfo">登录授权-获取用户信息</button>
+    <button asp-page-handler="SendMsg">发送模板消息</button>
+</form>
+
+<div>
+    <button onclick="shareTest()">分享测试</button>
+</div>
+@if (Model.SdkConfigData.Contains("error"))
+{
+    <div>获取JSSKDK失败：@(Model.SdkConfigData)</div>
+}
+<script src="//res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script>
+        var jssdk = @Html.Raw(Model.SdkConfigData);
+        var apiShareList = ['onMenuShareTimeline', 'updateAppMessageShareData', 'updateTimelineShareData', 'onMenuShareTimeline', 'onMenuShareAppMessage'];
+        wx.config(Object.assign({
+            debug: false,
+            jsApiList: apiShareList.concat([])
+        }, jssdk))
+        wx.ready(function () {
+            console.log('share1111')
+            apiShareList.forEach(s => {
+              wx[s]({
+                title: 'hahahaaha', // 分享标题
+                desc: 'hahahaaha', // 分享描述
+                link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico', // 分享图标
+                success: function () {
+                  // 设置成功
+                  console.log('分享成功拉')
+                }
+              })
+            })
+        });
+        wx.error(function (res) {
+            console.log('error:',res)
+        });
+        function shareTest() {
+            console.log('share222')
+            apiShareList.forEach(s => {
+                wx[s]({
+                title: '分享测试测试测试测试', // 分享标题
+                desc: '测试测试测试测试测试', // 分享描述
+                link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico', // 分享图标
+                success: function () {
+                  // 设置成功
+                  console.log('分享成功拉')
+                }
+              })
+            })
+        }
+</script>
