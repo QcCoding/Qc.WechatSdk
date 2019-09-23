@@ -18,7 +18,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Qc.WechatSdk)](https://www.nuget.org/packages/Qc.WechatSdk/)
 
 - dotnet cli  
-  `dotnet add package Qc.ProjectSdk`
+  `dotnet add package Qc.WechatSdk`
 - 包管理器  
   `Install-Package Install-Package Qc.WechatSdk`
 
