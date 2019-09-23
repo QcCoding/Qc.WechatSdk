@@ -66,7 +66,7 @@ namespace Qc.WechatSdk
             });
         }
         /// <summary>
-        /// 获取OAuth授权的Url地址。
+        /// 获取微信授权的Url地址。
         /// </summary>
         /// <param name="callbackUrl">需要跳转的目标地址。</param>
         /// <param name="scope">OAuth域。</param>

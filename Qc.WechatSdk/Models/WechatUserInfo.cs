@@ -23,7 +23,7 @@ namespace Qc.WechatSdk.Models
         /// 性别（0：未知，1：男，2：女）
         /// </summary>
         [JsonProperty("sex")]
-        internal int Sex { get; set; }
+        public int Sex { get; set; }
 
         /// <summary>
         /// 省份。
